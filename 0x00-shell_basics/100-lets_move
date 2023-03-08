@@ -1,2 +1,2 @@
 #!/bin/bash
-mv -regex ./*[A-Z]* /tmp/u
+mv -type f -regex './*[A-Z]*' /tmp/u
