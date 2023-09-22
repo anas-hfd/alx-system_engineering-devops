@@ -1,3 +1,5 @@
+#create a file in /tmp
+
 file { '/tmp/school':
 ensure  => 'file',           #Ensure its a regular file
 mode    => '0744',           #File permissions
