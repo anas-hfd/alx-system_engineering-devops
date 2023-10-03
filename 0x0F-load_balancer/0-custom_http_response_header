@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #configure a custom header for http response by nginx
-#custom response for every web server 01 and 02 
+#custom response for every web-01 and web-02 
 
 var=$(hostname)
 string_1="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
