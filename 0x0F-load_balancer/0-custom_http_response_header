@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #configure a custom header for http response by nginx
-#custom response for every web-01 and web-02 
+#custom response for every web server 01 and 02 
 
 var=$(hostname)
 string_1="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
@@ -13,8 +13,4 @@ mkdir -p /var/www/html
 echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 sudo sed -i -E "s/^[^#]+location \/ \{/$string_1/" /etc/nginx/sites-available/default
 sudo sed -i -E "s/^server \{/$string_2/" /etc/nginx/sites-available/default
-<<<<<<< HEAD
 sudo service nginx restart
-=======
-sudo service nginx start
->>>>>>> bdbbf29396f681449346de4b3f0334a3465fac5b
