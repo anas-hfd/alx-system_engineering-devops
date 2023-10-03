@@ -6,11 +6,11 @@ var=$(hostname)
 string_1="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
 string_2="server {\n\tadd_header X-Served-By $var;"
 
-apt-get update
-apt-get install nginx -y
+sudo apt-get update
+sudo apt-get install nginx -y
 echo "Hello World!" > /usr/share/nginx/html/index.html
 mkdir -p /var/www/html
 echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 sudo sed -i -E "s/^[^#]+location \/ \{/$string_1/" /etc/nginx/sites-available/default
 sudo sed -i -E "s/^server \{/$string_2/" /etc/nginx/sites-available/default
-sudo service nginx start
+sudo service nginx restart
