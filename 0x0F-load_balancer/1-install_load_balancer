@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#configures ubuntu to install and configure HAProxy
+#configures ubuntu to install and configure HAProxy LB
 
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:vbernat/haproxy-1.8
