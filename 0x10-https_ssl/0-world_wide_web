@@ -8,7 +8,6 @@ subdomaininfo () {
 if [ "$#" -eq 2 ]
 then
     subdomaininfo "$2.$1" "$2"
-    """checks whichsubdomain is wanted"""
 else
     subdomaininfo "www.$1" "www"
     subdomaininfo "lb-01.$1" "lb-01"
