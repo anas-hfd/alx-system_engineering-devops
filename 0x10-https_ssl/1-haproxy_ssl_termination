@@ -1,0 +1,46 @@
+global
+    log 127.0.0.1 local0 notice
+    maxconn 2000
+    user haproxy
+    group haproxy
+defaults
+    log     global
+    mode    http
+    option  httplog
+    option  dontlognull
+    retries 3
+    option redispatch
+    timeout connect  5000
+    timeout client  50000
+    timeout server  50000
+    errorfile 400 /etc/haproxy/errors/400.http
+    errorfile 403 /etc/haproxy/errors/403.http
+    errorfile 408 /etc/haproxy/errors/408.http
+    errorfile 500 /etc/haproxy/errors/500.http
+    errorfile 502 /etc/haproxy/errors/502.http
+    errorfile 503 /etc/haproxy/errors/503.http
+    errorfile 504 /etc/haproxy/errors/504.http
+listen hbnb
+    bind 0.0.0.0:80
+    mode http
+    stats enable
+    stats uri /haproxy?stats
+    balance roundrobin
+    option httpclose
+    option forwardfor
+    server 374194-web-01 100.25.37.85:80 check
+    server 374194-web-02 100.26.228.112:80 check
+
+listen www
+    bind *:80
+    bind *:443 ssl crt /etc/haproxy/certs/www.anascode.tech.pem
+    http-request redirect scheme https unless { ssl_fc }
+    balance roundrobin
+    server 374194-web-01 100.25.37.85:80 check
+    server 374194-web-02 100.26.228.112:80 check
+
+listen myserver
+        bind *:80
+        balance roundrobin
+        server server1 18.207.1.87:80 check
+        server server2 52.206.189.175:80 check
