@@ -1,0 +1,33 @@
+global
+    log 127.0.0.1 local0 notice
+    maxconn 2000
+    user haproxy
+    group haproxy
+defaults
+    log     global
+    mode    http
+    option  httplog
+    option  dontlognull
+    retries 3
+    option redispatch
+    timeout connect  5000
+    timeout client  10000
+    timeout server  10000
+listen hbnb
+    bind 0.0.0.0:80
+    mode http
+    stats enable
+    stats uri /haproxy?stats
+    balance roundrobin
+    option httpclose
+    option forwardfor
+    server 374194-web-01 100.25.37.85:80 check
+    server 374194-web-02 100.26.228.112:80 check
+
+listen myserver
+        bind *:80
+        bind *:443 ssl crt /etc/haproxy/ssl-certs/cert.pem
+        redirect scheme https code 301 if !{ ssl_fc }
+        balance roundrobin
+        server server1 18.207.1.87:80 check
+        server server2 52.206.189.175:80 check
