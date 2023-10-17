@@ -1,0 +1,17 @@
+                 What happens when you type "https://www.google.com" into your web browser and press Enter
+
+	When you type "https://www.google.com" into your web browser and press Enter, you're setting off a complex chain of events that allow you to access Google's website. This chain involves various stages, from converting the domain name to an IP address, to establishing a secure connection, and finally, retrieving and displaying the webpage. Let's break down the process step by step.
+
+	Your browser begins by sending a DNS (Domain Name System) request to a DNS resolver, provided by your Internet Service Provider (ISP) or a public DNS service. The purpose of this request is to translate the human-readable domain name "www.google.com" into an IP address that can be used to locate the Google server on the internet. The DNS resolver may cache the IP address for future use, which helps improve performance and reduces the load on the DNS infrastructure.
+
+	Once your browser has the IP address, it establishes a connection using the Transmission Control Protocol (TCP) and the Internet Protocol (IP). This combination provides a reliable, ordered, and error-checked connection, ensuring that data arrives intact at its destination.
+
+	Before the connection to the Google server can be established, it must pass through your computer's firewall (if enabled), as well as any network-level firewalls or security systems, which may exist in your organization's network. Firewalls act as gatekeepers, allowing or denying specific types of traffic based on predefined security rules.
+
+	In the URL "https" indicates that a secure connection using the (Hypertext Transfer Protocol Secure) protocol is required. HTTPS encrypts the data transmitted between your browser and the server, ensuring the privacy and integrity of the information. Then, the SSL/TLS (Secure Sockets Layer/Transport Layer Security) handshake takes place, allowing the browser and the server to establish a secure communication channel. During this process, they exchange encryption keys and verify the authenticity of the server's SSL certificate.
+
+	Large websites like Google often use load balancers to distribute incoming traffic across multiple servers. Load balancers improve performance, ensure high availability, and prevent any single server from being overwhelmed. When you connect to "www.google.com" a load balancer may decide which specific server (or data center) should handle your request. The choice is based on factors like server load, geographic location, or other load-balancing algorithms.
+
+	After passing through the load balancer, your request reaches one of Google's web servers. The web server's primary job is to process HTTP requests, retrieve web pages, and return the requested data to your browser. Google's web servers are responsible for handling the millions of requests they receive daily, serving content efficiently, and responding to queries from users. In addition to serving static content like HTML and images, web applications often rely on application servers to process dynamic content. These servers execute code, interact with databases, and generate the web pages on-the-fly.
+
+	Finally, to retrieve dynamic data, application servers often communicate with databases. Google's search engine, for example, interacts with a vast database to provide search results. Databases store, retrieve, and update structured data efficiently. and yeaaah! welcome to Google's website main page.
