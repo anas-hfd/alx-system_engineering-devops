@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ gets info about employee progress"""
-import requests
 import re
+import request
 import sys
 
 
